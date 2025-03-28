@@ -8,6 +8,6 @@ def index(request):
     posts = Post.objects.filter(status='PUBLISHED')
     return render(request, 'posts/index.html', context={'posts': posts})
 
-def post_details(request, post_id):
-    post = Post.objects.get(id=post_id)
+def post_details(request, post_slug):
+    post = Post.objects.get(slug=post_slug)
     return render(request, 'posts/detail.html', context={'post': post})

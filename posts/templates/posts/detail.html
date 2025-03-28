@@ -7,8 +7,10 @@
 </head>
 <body>
     <div id="content">
-        <h1>This is post detail page</h1>
-        <h2>{{ post }}</h2>
+        <h1>{{ post.title }}</h1>
+        <p class="date">Published {{post.publish}} by {{post.author}}</p>
+        <h2>{{ post.body }}</h2>
+        <a href="{% url "posts:index" %}" ><h2>Back</h2></a>
     </div>
     <div id="sidebar">
         <h2>pk blogs</h2>

@@ -8,7 +8,8 @@
 <body>
     <div id="content">
         {% for post in posts %}
-        <h2>{{post.title}}</h2>
+        <a href="{% url "posts:details" post_slug=post.slug %}"><h2>{{ post.title}}</h2></a>
+        <p class="date">Published {{post.publish}} by {{post.author}}</p>
         <p>{{post.body}}</p>
         {% endfor %}
     </div>
