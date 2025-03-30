@@ -26,6 +26,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    @classmethod
+    def total_posts(cls):
+        total = Post.objects.count()
+        return total
 
 
 class Comment(models.Model):

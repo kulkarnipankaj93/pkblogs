@@ -6,7 +6,8 @@ from .models import Post
 
 def index(request):
     posts = Post.objects.filter(status='PUBLISHED')
-    return render(request, 'posts/index.html', context={'posts': posts})
+    total_posts = Post.total_posts()
+    return render(request, 'posts/index.html', context={'posts': posts, 'total_posts': total_posts})
 
 def post_details(request, post_slug):
     post = Post.objects.get(slug=post_slug)
