@@ -1,6 +1,9 @@
 from django.db import models
+from django.db.models import Model
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.utils.text import slugify
+
 # Create your models here.
 
 
@@ -26,10 +29,20 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
     @classmethod
     def total_posts(cls):
         total = Post.objects.count()
         return total
+
+    @classmethod
+    def published_posts(cls):
+        return cls.objects.filter(status='PUBLISHED')
+
+    def save(self, *args, **kwargs):
+        slug = slugify(self.title)
+        self.slug = slug
+        super().save(*args, **kwargs)
 
 
 class Comment(models.Model):
