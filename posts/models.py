@@ -9,8 +9,8 @@ from django.utils.text import slugify
 
 class Post(models.Model):
     STATUS_CHOICES = (
-        ('DRAFT','Draft'),
-        ('PUBLISHED','Publish')
+        ('DRAFT', 'Draft'),
+        ('PUBLISHED', 'Publish')
     )
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250)
