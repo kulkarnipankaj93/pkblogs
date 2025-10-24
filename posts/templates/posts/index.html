@@ -8,7 +8,10 @@
 <body>
     <div id="content">
         {% for post in posts %}
-        <a href="{% url "posts:details" year=post.publish.year month=post.publish.month day=post.publish.day post_slug=post.slug %}">
+        <a href="{% url "posts:details" year=post.publish.year month=post.publish.month day=
+
+
+        post.publish.day post_slug=post.slug %}">
         <h2>{{ post.title}}</h2></a>
         <p class="date">Published {{post.publish}} by {{post.author}}</p>
         <p>{{post.body}}</p>
@@ -31,8 +34,8 @@
 
     </div>
     <div id="sidebar">
-        <h2>pk blogs</h2>
-        <p>Travel & share your Experiences</p>
+        <h2>demo blogs</h2>
+        <p>Tech related blog</p>
         <p>Total Posts: {{ total_posts}}</p>
 
     </div>
